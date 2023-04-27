@@ -267,3 +267,6 @@ To start Docker containers on boot run:
 ```bash
 sudo docker update --restart always jibridocker_recorder_1_1 jibridocker_recorder_2_1 jibridocker_recorder_3_1 jibridocker_recorder_4_1 jibridocker_recorder_5_1
 ```
+
+### Autostart
+If you want to start recording automatically use [this](https://github.com/jitsi-contrib/prosody-plugins/tree/main/jibri_autostart) plugin.
