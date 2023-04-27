@@ -1,0 +1,168 @@
+version: '3'
+
+services:
+    recorder_1:
+        image: jitsi/jibri:stable-8319
+        restart: ${RESTART_POLICY}
+        volumes:
+            - ${CONFIG}/recorder_1:/config:Z
+            - /dev/shm:/dev/shm
+            - /jitsi-recordings:/config/recordings
+            - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/asound/.asoundrc_1:/home/jibri/.asoundrc
+        cap_add:
+            - SYS_ADMIN
+            - NET_BIND_SERVICE
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            PUBLIC_URL: "https://your.jitsidomain.com"
+            XMPP_AUTH_DOMAIN: "auth.your.jitsidomain.com"
+            XMPP_INTERNAL_MUC_DOMAIN: "internal.auth.your.jitsidomain.com"
+            XMPP_RECORDER_DOMAIN: "recorder.your.jitsidomain.com"
+            XMPP_SERVER: "IP_of_your_jitsi_server"
+            XMPP_DOMAIN: "your.jitsidomain.com"
+            JIBRI_XMPP_USER: "jibri"
+            JIBRI_XMPP_PASSWORD: "jibri_auth_password"
+            JIBRI_BREWERY_MUC: "jibribrewery"
+            JIBRI_RECORDER_USER: "recorder"
+            JIBRI_RECORDER_PASSWORD: "jibri_recorder_password"
+            JIBRI_RECORDING_DIR: "/config/recordings"
+            JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: "/config/finalize.sh"
+            JIBRI_STRIP_DOMAIN_JID: "conference"
+            JIBRI_LOGS_DIR: "/config/logs"
+            DISPLAY: ":0"
+            CHROMIUM_FLAGS: "--use-fake-ui-for-media-stream,--start-maximized,--kiosk,--enabled,--disable-infobars,--autoplay-policy=no-user-gesture-required,--ignore-certificate-errors,--no-sandbox,-–disable-web-security"
+            TZ: "your/timezone"
+    recorder_2:
+        image: jitsi/jibri:stable-8319
+        restart: ${RESTART_POLICY}
+        volumes:
+            - ${CONFIG}/recorder_2:/config:Z
+            - /dev/shm:/dev/shm
+            - /jitsi-recordings:/config/recordings
+            - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/asound/.asoundrc_2:/home/jibri/.asoundrc
+        cap_add:
+            - SYS_ADMIN
+            - NET_BIND_SERVICE
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            PUBLIC_URL: "https://your.jitsidomain.com"
+            XMPP_AUTH_DOMAIN: "auth.your.jitsidomain.com"
+            XMPP_INTERNAL_MUC_DOMAIN: "internal.auth.your.jitsidomain.com"
+            XMPP_RECORDER_DOMAIN: "recorder.your.jitsidomain.com"
+            XMPP_SERVER: "IP_of_your_jitsi_server"
+            XMPP_DOMAIN: "your.jitsidomain.com"
+            JIBRI_XMPP_USER: "jibri"
+            JIBRI_XMPP_PASSWORD: "jibri_auth_password"
+            JIBRI_BREWERY_MUC: "jibribrewery"
+            JIBRI_RECORDER_USER: "recorder"
+            JIBRI_RECORDER_PASSWORD: "jibri_recorder_password"
+            JIBRI_RECORDING_DIR: "/config/recordings"
+            JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: "/config/finalize.sh"
+            JIBRI_STRIP_DOMAIN_JID: "conference"
+            JIBRI_LOGS_DIR: "/config/logs"
+            DISPLAY: ":0"
+            CHROMIUM_FLAGS: "--use-fake-ui-for-media-stream,--start-maximized,--kiosk,--enabled,--disable-infobars,--autoplay-policy=no-user-gesture-required,--ignore-certificate-errors,--no-sandbox,-–disable-web-security"
+            TZ: "your/timezone"
+    recorder_3:
+        image: jitsi/jibri:stable-8319
+        restart: ${RESTART_POLICY}
+        volumes:
+            - ${CONFIG}/recorder_3:/config:Z
+            - /dev/shm:/dev/shm
+            - /jitsi-recordings:/config/recordings
+            - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/asound/.asoundrc_3:/home/jibri/.asoundrc
+        cap_add:
+            - SYS_ADMIN
+            - NET_BIND_SERVICE
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            PUBLIC_URL: "https://your.jitsidomain.com"
+            XMPP_AUTH_DOMAIN: "auth.your.jitsidomain.com"
+            XMPP_INTERNAL_MUC_DOMAIN: "internal.auth.your.jitsidomain.com"
+            XMPP_RECORDER_DOMAIN: "recorder.your.jitsidomain.com"
+            XMPP_SERVER: "IP_of_your_jitsi_server"
+            XMPP_DOMAIN: "your.jitsidomain.com"
+            JIBRI_XMPP_USER: "jibri"
+            JIBRI_XMPP_PASSWORD: "jibri_auth_password"
+            JIBRI_BREWERY_MUC: "jibribrewery"
+            JIBRI_RECORDER_USER: "recorder"
+            JIBRI_RECORDER_PASSWORD: "jibri_recorder_password"
+            JIBRI_RECORDING_DIR: "/config/recordings"
+            JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: "/config/finalize.sh"
+            JIBRI_STRIP_DOMAIN_JID: "conference"
+            JIBRI_LOGS_DIR: "/config/logs"
+            DISPLAY: ":0"
+            CHROMIUM_FLAGS: "--use-fake-ui-for-media-stream,--start-maximized,--kiosk,--enabled,--disable-infobars,--autoplay-policy=no-user-gesture-required,--ignore-certificate-errors,--no-sandbox,-–disable-web-security"
+            TZ: "your/timezone"
+    recorder_4:
+        image: jitsi/jibri:stable-8319
+        restart: ${RESTART_POLICY}
+        volumes:
+            - ${CONFIG}/recorder_4:/config:Z
+            - /dev/shm:/dev/shm
+            - /jitsi-recordings:/config/recordings
+            - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/asound/.asoundrc_4:/home/jibri/.asoundrc
+        cap_add:
+            - SYS_ADMIN
+            - NET_BIND_SERVICE
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            PUBLIC_URL: "https://your.jitsidomain.com"
+            XMPP_AUTH_DOMAIN: "auth.your.jitsidomain.com"
+            XMPP_INTERNAL_MUC_DOMAIN: "internal.auth.your.jitsidomain.com"
+            XMPP_RECORDER_DOMAIN: "recorder.your.jitsidomain.com"
+            XMPP_SERVER: "IP_of_your_jitsi_server"
+            XMPP_DOMAIN: "your.jitsidomain.com"
+            JIBRI_XMPP_USER: "jibri"
+            JIBRI_XMPP_PASSWORD: "jibri_auth_password"
+            JIBRI_BREWERY_MUC: "jibribrewery"
+            JIBRI_RECORDER_USER: "recorder"
+            JIBRI_RECORDER_PASSWORD: "jibri_recorder_password"
+            JIBRI_RECORDING_DIR: "/config/recordings"
+            JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: "/config/finalize.sh"
+            JIBRI_STRIP_DOMAIN_JID: "conference"
+            JIBRI_LOGS_DIR: "/config/logs"
+            DISPLAY: ":0"
+            CHROMIUM_FLAGS: "--use-fake-ui-for-media-stream,--start-maximized,--kiosk,--enabled,--disable-infobars,--autoplay-policy=no-user-gesture-required,--ignore-certificate-errors,--no-sandbox,-–disable-web-security"
+            TZ: "your/timezone"
+    recorder_5:
+        image: jitsi/jibri:stable-8319
+        restart: ${RESTART_POLICY}
+        volumes:
+            - ${CONFIG}/recorder_5:/config:Z
+            - /dev/shm:/dev/shm
+            - /jitsi-recordings:/config/recordings
+            - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/asound/.asoundrc_5:/home/jibri/.asoundrc
+        cap_add:
+            - SYS_ADMIN
+            - NET_BIND_SERVICE
+        devices:
+            - /dev/snd:/dev/snd
+        environment:
+            PUBLIC_URL: "https://your.jitsidomain.com"
+            XMPP_AUTH_DOMAIN: "auth.your.jitsidomain.com"
+            XMPP_INTERNAL_MUC_DOMAIN: "internal.auth.your.jitsidomain.com"
+            XMPP_RECORDER_DOMAIN: "recorder.your.jitsidomain.com"
+            XMPP_SERVER: "IP_of_your_jitsi_server"
+            XMPP_DOMAIN: "your.jitsidomain.com"
+            JIBRI_XMPP_USER: "jibri"
+            JIBRI_XMPP_PASSWORD: "jibri_auth_password"
+            JIBRI_BREWERY_MUC: "jibribrewery"
+            JIBRI_RECORDER_USER: "recorder"
+            JIBRI_RECORDER_PASSWORD: "jibri_recorder_password"
+            JIBRI_RECORDING_DIR: "/config/recordings"
+            JIBRI_FINALIZE_RECORDING_SCRIPT_PATH: "/config/finalize.sh"
+            JIBRI_STRIP_DOMAIN_JID: "conference"
+            JIBRI_LOGS_DIR: "/config/logs"
+            DISPLAY: ":0"
+            CHROMIUM_FLAGS: "--use-fake-ui-for-media-stream,--start-maximized,--kiosk,--enabled,--disable-infobars,--autoplay-policy=no-user-gesture-required,--ignore-certificate-errors,--no-sandbox,-–disable-web-security"
+            TZ: "your/timezone"
