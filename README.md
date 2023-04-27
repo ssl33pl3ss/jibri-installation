@@ -56,6 +56,7 @@ sudo prosodyctl register jibri auth.your.jitsidomain.com jibri_auth_password
 sudo prosodyctl register recorder recorder.your.jitsidomain.com jibri_recorder_password
 ```
 > **Note**
+>
 > If you are having a problem with `Prosody was unable to find lua-unbound` then install lua libraries based on lua version you have:
 Check installed lua version by running `dpkg -l "lua*" | egrep "^ii"`
 Then install required packages: `sudo apt install libunbound-dev liblua5.2-dev`
@@ -110,7 +111,8 @@ In the same file find a `recordingService` section and enable it by uncommenting
 ```
 You can also configure some recording settings here if you need.
 > **Note** 
->If you want to enable a live streaming feature then find a `liveStreaming` section in this file and uncomment it the same way as `recordingService` section
+>
+> If you want to enable a live streaming feature then find a `liveStreaming` section in this file and uncomment it the same way as `recordingService` section
 
 Restart all of your Jitsi services:
 ```bash
@@ -216,6 +218,7 @@ Configure jibri.yml file in /etc/jibridocker directory:
 sudo nano /etc/jibridocker/jibri.yml
 ```
 
+Check the latest available release of Jitsi Docker image [here](https://github.com/jitsi/docker-jitsi-meet/releases) and edit image name in `image` section according to it.
 In `environment` section change **your.jitsidomain.com** to your actual Jitsi domain, **IP_of_your_jitsi_server** to actual IP of your Jitsi server and **your/timezone** to your timezone.
 You can also change `volumes` section if you are using different directories.
 If you are planning on using more Jibri instances, add them into jibri.yml file and create .asoundrc_\* files with ALSA configuration in **asound** folder.
@@ -228,6 +231,7 @@ sudo docker-compose -f jibri.yml up
 ```
 At the end you sould see `INFO: [27] org.jitsi.xmpp.mucclient.MucClient.log() Joined MUC: jibribrewery@internal.auth.your.jitsidomain.com`
 > **Note**
+> 
 > If your firewall is enabled and you get an error `org.jivesoftware.smack.SmackException$ConnectionException: The following addresses failed: 'your.jitsidomain.com:5222' failed because: your.jitsidomain.com/IP_of_your_jitsi_server exception: java.net.SocketTimeoutException: connect timed out` you should allow port 5222 by running `sudo ufw allow 5222`
 
 If everything is working, stop the containers with `Ctrl + C` and run:
@@ -240,6 +244,7 @@ Check if containers are running:
 sudo docker ps
 ```
 The output should be:
+```
 | CONTAINER ID | IMAGE | COMMAND | CREATED | STATUS | PORTS | NAMES |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | id | jitsi/jibri:stable-8319 | "/init" | 1 minute ago | Up 1 minute |       | jibridocker_recorder_2_1 |
@@ -247,7 +252,7 @@ The output should be:
 | id | jitsi/jibri:stable-8319 | "/init" | 1 minute ago | Up 1 minute |       | jibridocker_recorder_4_1 |
 | id | jitsi/jibri:stable-8319 | "/init" | 1 minute ago | Up 1 minute |       | jibridocker_recorder_5_1 |
 | id | jitsi/jibri:stable-8319 | "/init" | 1 minute ago | Up 1 minute |       | jibridocker_recorder_3_1 |
-
+```
 To check Docker container logs run:
 ```bash
 sudo docker logs docker_container_name
