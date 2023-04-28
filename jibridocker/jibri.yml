@@ -9,6 +9,7 @@ services:
             - /dev/shm:/dev/shm
             - /jitsi-recordings:/config/recordings
             - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/split-recordings.sh:/config/split-recordings.sh
             - /etc/jibridocker/asound/.asoundrc_1:/home/jibri/.asoundrc
         cap_add:
             - SYS_ADMIN
@@ -42,6 +43,7 @@ services:
             - /dev/shm:/dev/shm
             - /jitsi-recordings:/config/recordings
             - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/split-recordings.sh:/config/split-recordings.sh
             - /etc/jibridocker/asound/.asoundrc_2:/home/jibri/.asoundrc
         cap_add:
             - SYS_ADMIN
@@ -75,6 +77,7 @@ services:
             - /dev/shm:/dev/shm
             - /jitsi-recordings:/config/recordings
             - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/split-recordings.sh:/config/split-recordings.sh
             - /etc/jibridocker/asound/.asoundrc_3:/home/jibri/.asoundrc
         cap_add:
             - SYS_ADMIN
@@ -108,6 +111,7 @@ services:
             - /dev/shm:/dev/shm
             - /jitsi-recordings:/config/recordings
             - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/split-recordings.sh:/config/split-recordings.sh
             - /etc/jibridocker/asound/.asoundrc_4:/home/jibri/.asoundrc
         cap_add:
             - SYS_ADMIN
@@ -141,6 +145,7 @@ services:
             - /dev/shm:/dev/shm
             - /jitsi-recordings:/config/recordings
             - /etc/jibridocker/finalize.sh:/config/finalize.sh
+            - /etc/jibridocker/split-recordings.sh:/config/split-recordings.sh
             - /etc/jibridocker/asound/.asoundrc_5:/home/jibri/.asoundrc
         cap_add:
             - SYS_ADMIN

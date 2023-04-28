@@ -32,7 +32,7 @@ VirtualHost "recorder.your.jitsidomain.com"
       "ping";
     }
     authentication = "internal_plain"
-	c2s_require_encryption = false
+    c2s_require_encryption = false
     allow_empty_token = true
 ```
 In the same file add muc_room_cache_size and c2s_require_encryption to internal.auth component:
@@ -46,7 +46,7 @@ Component "internal.auth.your.jitsidomain.com" "muc"
     muc_room_locking = false
     muc_room_default_public_jids = true
     muc_room_cache_size = 1000
-	c2s_require_encryption = false
+    c2s_require_encryption = false
 ```
 
 Create two Prosody users. One for communication with Jibri and other for recording
@@ -267,6 +267,13 @@ To start Docker containers on boot run:
 ```bash
 sudo docker update --restart always jibridocker_recorder_1_1 jibridocker_recorder_2_1 jibridocker_recorder_3_1 jibridocker_recorder_4_1 jibridocker_recorder_5_1
 ```
+
+### Finalize script
+After recording is finished, Jibri executes `finalize.sh` script. Using this script, you can, for example, relocate recordings to another directory.
+In this installation, the finalize script:
+- Renames and moves finished recordings and metafiles to folders according to the date the meeting was finished;
+- Executes the `split-recordings.sh` script if the recording's size is more than 1 GB, which will split a recording into multiple 1 GB files;
+- Deletes the oldest recording folder if the number of recordings is more than 150.
 
 ### Autostart
 If you want to start recording automatically use [this](https://github.com/jitsi-contrib/prosody-plugins/tree/main/jibri_autostart) plugin.
